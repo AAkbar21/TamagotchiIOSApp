@@ -10,16 +10,13 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var tamagotchi = Tamagotchi(name: "Bob")
     var body: some View {
-        Form {
+        Form { 
         VStack(alignment: .leading, spacing: 10) {
             Text("""
                  \(tamagotchi.displayTamagotchiStats())
                 """
                  )
                 .padding()
-        }
-        Section {
-            Button
         }
         }
     }

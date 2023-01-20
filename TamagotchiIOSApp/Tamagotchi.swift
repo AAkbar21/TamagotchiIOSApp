@@ -13,6 +13,7 @@ class Tamagotchi: ObservableObject {
     private var weight: Int
     private var happy: Int
     private var hatched: Bool
+    private var age: Int
     @Published private var illness: Bool
     
     init(name: String) {
@@ -20,6 +21,7 @@ class Tamagotchi: ObservableObject {
         self.hunger = 10
         self.weight = 5
         self.happy = 5
+        self.age = 0
         self.hatched = false
         self.illness = false
     }
@@ -32,6 +34,7 @@ class Tamagotchi: ObservableObject {
                 Happy: \(happy)
                 Hatched: \(hatched)
                 Illness: \(illness)
+                Age: \(age)
                """
     }
     
@@ -42,8 +45,9 @@ class Tamagotchi: ObservableObject {
         self.weight += 1
     }
     
-    func getillness() -> Bool {
-        return illness
+    func getillness() -> String {
+        illness = true
+        return("Tamagotchi has been cured")
     }
     
     func giveMedicine() -> String {
@@ -51,4 +55,5 @@ class Tamagotchi: ObservableObject {
         illness = false
         return "Tamagotchi has been cured"
     }
+    
 }

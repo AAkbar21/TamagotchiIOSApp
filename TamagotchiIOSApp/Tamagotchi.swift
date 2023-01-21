@@ -8,12 +8,12 @@
 import Foundation
 
 class Tamagotchi: ObservableObject {
-    private var name: String
-    private var hunger: Int
-    private var weight: Int
-    private var happy: Int
-    private var hatched: Bool
-    private var age: Int
+    @Published private var name: String
+    @Published private var hunger: Int
+    @Published private var weight: Int
+    @Published private var happy: Int
+    @Published private var hatched: Bool
+    @Published private var age: Int
     @Published private var illness: Bool
     
     init(name: String) {
@@ -45,15 +45,22 @@ class Tamagotchi: ObservableObject {
         self.weight += 1
     }
     
-    func getillness() -> String {
+    func getillness() {
         illness = true
-        return("Tamagotchi has been cured")
+        print("Tamagotchi has been cured")  
     }
     
     func giveMedicine() -> String {
         happy += 1
         illness = false
         return "Tamagotchi has been cured"
+    }
+    
+    func goSleep() {
+        happy += 1
+        hunger -= 1
+        age += 1
+        
     }
     
 }
